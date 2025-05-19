@@ -19,28 +19,24 @@ function UserList() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-  const fetchUserData = async () => {
-    const url = 'http://localhost:8081/api/user/list';
-    const data = await fetchModel(url);
+    const fetchUserData = async () => {
+      const url = "https://8wsr4p-8081.csb.app/api/user/list";
+      const data = await fetchModel(url);
 
-    if (data) {
-      setUsers(data);
-      setLoading(false);
-    } else {
-      setError('Failed to load users');
-      setLoading(false);
-    }
-  };
+      if (data) {
+        setUsers(data);
+        setLoading(false);
+      } else {
+        setError("Failed to load users");
+        setLoading(false);
+      }
+    };
 
-  fetchUserData();
-}, []);
+    fetchUserData();
+  }, []);
 
   if (loading) {
-    return (
-      <Typography variant="body1">
-        Loading users...
-      </Typography>
-    );
+    return <Typography variant="body1">Loading users...</Typography>;
   }
 
   if (error) {
@@ -57,10 +53,10 @@ function UserList() {
         component={Link}
         to="/"
         sx={{
-          textDecoration: 'none',
-          color: 'text.primary',
-          '&:visited': {
-            color: 'text.primary',
+          textDecoration: "none",
+          color: "text.primary",
+          "&:visited": {
+            color: "text.primary",
           },
         }}
       >
@@ -75,8 +71,8 @@ function UserList() {
               <ListItemText
                 primary={`${user.first_name} ${user.last_name}`}
                 sx={{
-                  '& .MuiTypography-root': {
-                    color: 'text.primary',
+                  "& .MuiTypography-root": {
+                    color: "text.primary",
                   },
                 }}
               />

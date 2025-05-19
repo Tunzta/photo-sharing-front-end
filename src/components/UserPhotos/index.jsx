@@ -21,23 +21,23 @@ function UserPhotos() {
   useEffect(() => {
     const fetchUserDataAndPhotos = async () => {
       try {
-        const userUrl = `http://localhost:8081/api/user/${userId}`;
-        const photosUrl = `http://localhost:8081/api/photosOfUser/${userId}`;
-        
+        const userUrl = `https://8wsr4p-8081.csb.app/api/user/${userId}`;
+        const photosUrl = `https://8wsr4p-8081.csb.app/api/photosOfUser/${userId}`;
+
         const [userData, photosData] = await Promise.all([
           fetchModel(userUrl),
           fetchModel(photosUrl),
         ]);
 
         if (userData) setUser(userData);
-        else setError('Failed to load user data');
+        else setError("Failed to load user data");
 
         if (photosData) setPhotos(photosData);
-        else setError('Failed to load photos');
+        else setError("Failed to load photos");
 
         setLoading(false);
       } catch (err) {
-        setError('Error fetching data');
+        setError("Error fetching data");
         setLoading(false);
       }
     };
@@ -55,7 +55,11 @@ function UserPhotos() {
   }
 
   if (error) {
-    return <Typography variant="body1" color="error">{error}</Typography>;
+    return (
+      <Typography variant="body1" color="error">
+        {error}
+      </Typography>
+    );
   }
 
   if (!user) {
@@ -72,7 +76,7 @@ function UserPhotos() {
         <Typography>No photos available for this user.</Typography>
       ) : (
         photos.map((photo) => {
-          const imageUrl = `http://localhost:8081/images/${photo.file_name}`;
+          const imageUrl = `https://8wsr4p-8081.csb.app/images/${photo.file_name}`;
 
           return (
             <Card key={photo._id} sx={{ maxWidth: 600, mb: 4 }}>

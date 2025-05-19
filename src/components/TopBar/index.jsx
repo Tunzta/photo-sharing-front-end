@@ -18,7 +18,7 @@ function TopBar() {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const url = `http://localhost:8081/api/user/list`;
+        const url = `https://8wsr4p-8081.csb.app/api/user/list`;
         const users = await fetchModel(url);
 
         if (Array.isArray(users) && params.userId) {
@@ -66,11 +66,11 @@ function TopBar() {
           to="/"
           sx={{
             flexGrow: 1,
-            textDecoration: 'none',
-            color: 'inherit',
-            '&:hover': {
-              opacity: 0.8
-            }
+            textDecoration: "none",
+            color: "inherit",
+            "&:hover": {
+              opacity: 0.8,
+            },
           }}
         >
           <Typography variant="h5" color="inherit">
@@ -81,11 +81,11 @@ function TopBar() {
           component={Link}
           to="/"
           sx={{
-            textDecoration: 'none',
-            color: 'inherit',
-            '&:hover': {
-              opacity: 0.8
-            }
+            textDecoration: "none",
+            color: "inherit",
+            "&:hover": {
+              opacity: 0.8,
+            },
           }}
         >
           <Typography variant="h6" color="inherit">
